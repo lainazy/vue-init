@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const eslintFriendlyFormatter = require('eslint-friendly-formatter');
 const utils = require('./utils');
 const config = require('../config');
 const vueLoaderConfig = require('./vue-loader.conf');
@@ -11,6 +10,18 @@ function resolve(dir) {
 
 function transformEnv(env) {
   return env === 'production' ? 'prod' : env === 'testing' ? 'test' : 'dev';
+}
+
+function createLintRule() {
+  return {
+    test: /\.(js|vue)$/,
+    include: [resolve('src'), resolve('test')],
+    enforce: 'pre',
+    loader: 'eslint-loader',
+    options: {
+      formatter: require('eslint-friendly-formatter'),
+    },
+  };
 }
 
 module.exports = {
@@ -32,15 +43,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        include: [resolve('src'), resolve('test')],
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        options: {
-          formatter: eslintFriendlyFormatter,
-        },
-      },
+      ...(config.base.useEslint ? [createLintRule()] : []),
       {
         test: /\.js$/,
         include: [resolve('src'), resolve('test')],

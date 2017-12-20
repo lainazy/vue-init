@@ -5,7 +5,9 @@ const path = require('path');
 
 module.exports = {
   base: {
-    useFlexible: true,
+    useEslint: true, // 启用eslint
+    useFlexible: true, // 启用flexible
+    remUnit: 50, // 启用flexible时的根字体大小(px)
   },
   build: {
     env: require('./prod.env'),

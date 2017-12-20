@@ -21,13 +21,14 @@ function cssLoaders(options = {}) {
   const px2remLoader = {
     loader: 'px2rem-loader',
     options: {
-      remUnit: 50,
+      remUnit: config.base.remUnit,
     },
   };
 
   // generate loader string to be used with extract text plugin
   function generateLoaders(loader, loaderOptions) {
     const loaders = config.base.useFlexible ? [cssLoader, px2remLoader] : [cssLoader];
+
     if (loader) {
       loaders.push({
         loader: `${loader}-loader`,
