@@ -1,8 +1,6 @@
-# vue-project
+# {{ name }}
 
-```bash
-  vue init lainazy/vue-init vue-project
-```
+> {{ description }}
 
 ## src 目录下各个目录及文件简介
 
@@ -23,7 +21,7 @@
 * mixins 目录 (存放多个 vue 组件需要共用的选项配置)
 * plugins 目录 (存放项目中需要使用的 vue 插件)
 * router 目录 (存放 vue-router 相关配置)
-  * routes.js 文件 (存放 vue-router 的所有 route 配置)
+  * routes.js 文件 (存放 vue-router 的所有 route 配置)
 * store 目录 (存放 vuex.store 相关配置)
   * modules 目录 (按模块分隔 store 配置，如果是所有模块的通用配置可以直接写在 store/index.js 文件中)
 * utils 目录 (存放全局共享的工具函数)
@@ -47,10 +45,10 @@
 
 该项目默认启用 eslint 进行 js 代码语法检查，检查不通过时将出现以下现象：
 
-* 开发时代码无法运行成功
-* git commit 无法提交成功
+* 开发环境代码运行报错
+* git commit 无法提交成功
 
-当你执行 git commit 时，会在代码提交之前先执行 eslint 校验 src 目录下变更过的 js 或 vue 文件，为了提高执行速率，未变更的文件不会再次校验，如果 eslint 语法检查不通过，将会阻止本次提交。
+当你执行 git commit 时，会在代码提交之前先执行 eslint 校验 src 目录下变更过的 js 或 vue 文件，为了提高执行速率，未变更的文件不会再次校验，如果 eslint 语法检查不通过，将会阻止本次提交。
 
 如果你非要强制提交代码，可以使用 `git commit --no-verify` (强烈不推荐，因为这样你提交的代码在团队其他成员 pull 时，会报出一大堆错误，应当确保只有在 eslint 校验成功，但出现其他未知异常导致代码无法正常提交时，才使用该选项)
 
@@ -66,7 +64,7 @@
 # install dependencies
 yarn
 
-# 安装 phantomjs-prebuilt 经常报错，常常需要切换镜像源 (以下3个源哪个正常用哪个)
+# 安装 phantomjs-prebuilt 经常报错，常常需要切换镜像源 (以下3个源哪个正常用哪个)
 # yarn config set phantomjs_cdnurl https://bitbucket.org/ariya/phantomjs/downloads
 # yarn config set phantomjs_cdnurl https://cnpmjs.org/downloads
 # yarn config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs

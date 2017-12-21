@@ -7,8 +7,7 @@ const config = require('../config');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const webpackConfig = merge(baseWebpackConfig, {
-  // use inline sourcemap for karma-sourcemap-loader
-  devtool: '#inline-source-map',
+  devtool: config.test.devtool,
   resolveLoader: {
     alias: {
       // necessary to to make lang="scss" work in test when using vue-loader's ?inject option

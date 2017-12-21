@@ -1,8 +1,8 @@
 {
-  "name": "vue-project",
+  "name": "{{ name }}",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "lainazy <lainazy@users.noreply.github.com>",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
   "private": true,
   "scripts": {
     "start": "npm run dev",

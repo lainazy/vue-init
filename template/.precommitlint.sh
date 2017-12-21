@@ -23,7 +23,7 @@ lintlist=`git diff HEAD --name-only | grep -E "\.(js|vue)$" | grep src/`
 
 if [ -z "${lintlist}" ]
 then
-  echo -e "${ECHO_COLOR}> No file need to check again, skip over eslint.${ECHO_RESET}"
+  echo -e "${ECHO_COLOR}> No file need to lint again, skip over eslint.${ECHO_RESET}"
   exit 0 # 退出当前shell脚本，0表示正常退出
 fi
 
