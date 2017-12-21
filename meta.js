@@ -18,19 +18,5 @@ module.exports = {
     },
   },
   filters: {},
-  complete(data, { chalk }) {
-    console.log(
-      chalk.green(`
-        Project initialization finished!
-      `),
-    );
-    if (!data.inPlace) {
-      console.log(
-        chalk.yellow(`
-          cd ${data.destDirName}
-          npm run dev
-        `),
-      );
-    }
-  },
+  complete(data, { chalk }) {},
 };
