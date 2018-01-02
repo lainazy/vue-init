@@ -1,5 +1,5 @@
 {
-  "name": "{{ name }}",
+  "name": "name",
   "version": "1.0.0",
   "description": "{{ description }}",
   "author": "{{ author }}",
@@ -28,11 +28,13 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chalk": "^2.3.0",
+    "chromedriver": "^2.34.0",
     "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^4.2.3",
     "cross-env": "^5.1.1",
@@ -92,6 +94,12 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
-  "pre-commit": ["precommitlint"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "pre-commit": [
+    "precommitlint"
+  ]
 }

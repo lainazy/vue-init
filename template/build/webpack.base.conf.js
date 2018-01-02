@@ -8,7 +8,7 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-function transformEnv(env) {
+function envAbbr(env) {
   return env === 'production' ? 'prod' : env === 'testing' ? 'test' : 'dev';
 }
 
@@ -84,7 +84,7 @@ module.exports = {
   plugins: [
     // https://doc.webpack-china.org/plugins/provide-plugin
     new webpack.ProvidePlugin({
-      $config: [resolve('src/data/env.conf'), transformEnv(process.env.NODE_ENV)],
+      $config: [resolve('src/data/env.conf'), envAbbr(process.env.NODE_ENV)],
       $axios: [resolve('src/api/axios'), 'default'],
       $api: [resolve('src/api/path'), 'default'],
     }),

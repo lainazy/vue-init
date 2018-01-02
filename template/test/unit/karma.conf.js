@@ -14,7 +14,11 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'sinon-chai', 'phantomjs-shim'],
     reporters: ['spec', 'coverage'],
-    files: ['./index.js'],
+    files: [
+      // phantomjs很久没更新了，有很多js语法新特性不支持，需要引入垫片库
+      '../../node_modules/babel-polyfill/dist/polyfill.min.js',
+      './index.js'
+    ],
     preprocessors: {
       './index.js': ['webpack', 'sourcemap']
     },

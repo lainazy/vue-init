@@ -6,6 +6,10 @@ const utils = require('./utils');
 const config = require('../config');
 const baseWebpackConfig = require('./webpack.base.conf');
 
+// 有些loader的loaderUtils.parseQuery()方法有问题，需要修改为使用loaderUtils.getOptions()方法
+// 然而仍有不少loader没改，会导致报错，所以此处禁止错误提示
+process.noDeprecation = true;
+
 const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.test.devtool,
   resolveLoader: {

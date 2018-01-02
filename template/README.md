@@ -72,6 +72,9 @@ yarn
 # 安装 node-sass 也很容易报错，通常换成淘宝镜像就好了
 # yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass
 
+# 安装 chromedriver 也会报错，源镜像被墙了，换成淘宝镜像
+# yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver
+
 # serve with hot reload at localhost:8080
 yarn run dev
 
