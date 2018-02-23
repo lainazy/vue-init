@@ -25,7 +25,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': process.env.NODE_ENV === 'testing' ? config.test.env : config.build.env,
+      'process.env':{{#if test}} process.env.NODE_ENV === 'testing' ? config.test.env :{{/if}} config.build.env,
     }),
     // UglifyJs do not support ES6+, you can also use babel-minify for better treeshaking: https://github.com/babel/minify
     new webpack.optimize.UglifyJsPlugin({
@@ -51,7 +51,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index,
+      filename:{{#if test}} process.env.NODE_ENV === 'testing' ? 'index.html' :{{/if}} config.build.index,
       template: 'index.html',
       inject: true,
       minify: {

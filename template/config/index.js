@@ -47,9 +47,11 @@ module.exports = {
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
   },
+  {{#if test}}
   test: {
     env: require('./test.env'),
     // use inline sourcemap for karma-sourcemap-loader
     devtool: '#inline-source-map',
   },
+  {{/if}}
 };

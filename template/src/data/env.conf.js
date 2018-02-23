@@ -23,9 +23,10 @@ const dev = {
 const prod = {
   baseURL: 'http://prod.example.com',
 };
-
+{{#if test}}
 const test = {
   baseURL: 'http://test.example.com',
 };
+{{/if}}
 
-export { dev, prod, test };
+export { dev, prod{{#if test}}, test{{/if}} };

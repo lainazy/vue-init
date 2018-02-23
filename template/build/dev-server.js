@@ -89,8 +89,8 @@ devMiddleware.waitUntilValid(() => {
     process.env.PORT = port;
     const uri = `http://localhost:${port}`;
     console.log(`> Listening at ${uri}\n`);
-    // when env is testing, don't need open it
-    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+
+    if (autoOpenBrowser{{#if test}} && process.env.NODE_ENV !== 'testing'{{/if}}) {
       opn(uri);
     }
     server = app.listen(port);

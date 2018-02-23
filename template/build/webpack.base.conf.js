@@ -9,13 +9,13 @@ function resolve(dir) {
 }
 
 function envAbbr(env) {
-  return env === 'production' ? 'prod' : env === 'testing' ? 'test' : 'dev';
+  return env === 'production' ? 'prod' :{{#if test}} env === 'testing' ? 'test' :{{/if}} 'dev';
 }
 
 function createLintRule() {
   return {
     test: /\.(js|vue)$/,
-    include: [resolve('src'), resolve('test')],
+    include: [resolve('src'){{#if test}}, resolve('test'){{/if}}],
     enforce: 'pre',
     loader: 'eslint-loader',
     options: {
@@ -47,7 +47,7 @@ module.exports = {
       ...(config.base.useEslint ? [createLintRule()] : []),
       {
         test: /\.js$/,
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'){{#if test}}, resolve('test'){{/if}}],
         loader: 'babel-loader',
       },
       {
