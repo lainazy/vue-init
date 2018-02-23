@@ -13,7 +13,7 @@ const opn = require('opn');
 const proxyMiddleware = require('http-proxy-middleware');
 
 const webpackConfig =
-  process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'testing' ? require('./webpack.prod.conf') : require('./webpack.dev.conf');
+  process.env.NODE_ENV === 'production'{{#if test}} || process.env.NODE_ENV === 'testing'{{/if}} ? require('./webpack.prod.conf') : require('./webpack.dev.conf');
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;
