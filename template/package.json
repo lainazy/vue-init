@@ -20,10 +20,8 @@
     "axios": "^0.17.1",
     "normalize.css": "^7.0.0",
     "vue": "^2.5.9",
-    "vue-router": "^3.0.1",
-    {{#if vuex}}
-    "vuex": "^3.0.1"
-    {{/if}}
+    "vue-router": "^3.0.1"{{#if vuex}},
+    "vuex": "^3.0.1"{{/if}}
   },
   "devDependencies": {
     "autoprefixer": "^7.2.2",
