@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <!-- <h1>{{ msg }} - {{ increment }}</h1> -->
+    <h1>\{{ msg }}</h1>
+    {{#if vuex}}
+    <!-- <h1>\{{ msg }} - \{{ increment }}</h1> -->
+    {{/if}}
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -36,11 +38,13 @@
   //   Loading,
   //   Toast,
   // } from '@/components/commons';
+  {{#if vuex}}
   import {
     mapGetters,
     mapMutations,
     // mapActions,
   } from 'vuex';
+  {{/if}}
 
   export default {
     name: 'HelloWorld',
@@ -51,20 +55,24 @@
         msg: 'Welcome to Your Vue.js App',
       };
     },
+    {{#if vuex}}
     computed: {
       ...mapGetters(['increment']),
     },
+    {{/if}}
     methods: {
+      {{#if vuex}}
       ...mapMutations(['setIncrement']),
       // ...mapActions(['setIncrement']),
+      {{/if}}
       click() {
         // this.show = !this.show;
         // setTimeout(() => {
         //   this.show = true;
         // }, 1500);
-        // this.showPrompt('提示内容', '提示', res => {
-        //   console.log(res);
-        // });
+        this.showPrompt('提示内容', '提示', res => {
+          console.log(res);
+        });
         // this.showToast('提示内容', 'top', 'success');
         // if (this.show) {
         //   this.hideLoading();
@@ -73,7 +81,9 @@
         // }
         // this.show = !this.show;
         // this.showNotify('提示');
-        this.setIncrement(this.increment + 1);
+        {{#if vuex}}
+        // this.setIncrement(this.increment + 1);
+        {{/if}}
       },
     },
     // components: {

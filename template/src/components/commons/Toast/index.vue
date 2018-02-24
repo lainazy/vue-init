@@ -3,7 +3,7 @@
     <transition :name="transition">
       <div class="toast-wrap" :class="positionClass" v-show="showValue">
         <i class="toast-icon iconfont" :class="iconClass" v-show="showIcon"></i>
-        <div class="toast-content" v-show="!!content">{{content}}</div>
+        <div class="toast-content" v-show="!!content">\{{content}}</div>
       </div>
     </transition>
   </div>

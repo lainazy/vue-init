@@ -2,7 +2,7 @@
   <div class="v-notify">
     <transition :name="transition">
       <div class="notify-wrap" :class="positionClass" v-show="showValue && !!content">
-        <div class="notify-content">{{content}}</div>
+        <div class="notify-content">\{{content}}</div>
       </div>
     </transition>
   </div>

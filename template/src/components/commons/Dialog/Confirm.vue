@@ -1,12 +1,12 @@
 <template>
   <v-dialog class="v-confirm" :no-mask="noMask" v-model="showValue">
-    <div class="dialog-title" v-if="!!title">{{title}}</div>
+    <div class="dialog-title" v-if="!!title">\{{title}}</div>
     <div class="dialog-content">
       <div v-html="content"></div>
     </div>
     <div class="dialog-buttons border-top-line">
-      <a href="javascript:;" class="button-cancel border-right-line" @click="cancel">{{cancelText}}</a>
-      <a href="javascript:;" class="button-confirm" @click="confirm">{{confirmText}}</a>
+      <a href="javascript:;" class="button-cancel border-right-line" @click="cancel">\{{cancelText}}</a>
+      <a href="javascript:;" class="button-confirm" @click="confirm">\{{confirmText}}</a>
     </div>
   </v-dialog>
 </template>
