@@ -44,6 +44,10 @@ module.exports = {
       type: 'string',
       message: 'Author',
     },
+    vuex: {
+      type: 'confirm',
+      message: 'Install vuex?',
+    },
     test: {
       type: 'confirm',
       message: 'Setup unit tests (use Karma and Mocha) and e2e tests (use Nightwatch)?',
@@ -53,6 +57,7 @@ module.exports = {
     'config/test.env.js': 'test',
     'build/webpack.test.conf.js': 'test',
     'test/**/*': 'test',
+    'src/store/**/*': 'vuex',
   },
   complete(data, { chalk }) {
     sortDependencies(data);

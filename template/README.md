@@ -22,8 +22,10 @@
 * plugins 目录 (存放项目中需要使用的 vue 插件)
 * router 目录 (存放 vue-router 相关配置)
   * routes.js 文件 (存放 vue-router 的所有 route 配置)
+{{#if vuex}}
 * store 目录 (存放 vuex.store 相关配置)
   * modules 目录 (按模块分隔 store 配置，如果是所有模块的通用配置可以直接写在 store/index.js 文件中)
+{{/if}}
 * utils 目录 (存放全局共享的工具函数)
   * directives.js 文件 (存放全局的 vue directive)
   * filters.js 文件 (存放全局的 vue filter)
