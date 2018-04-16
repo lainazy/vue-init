@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
-    <h1>\{{ msg }}</h1>
     {{#if vuex}}
-    <!-- <h1>\{{ msg }} - \{{ increment }}</h1> -->
+    <h1>\{{ msg }} - \{{ increment }}</h1>
+    {{else}}
+    <h1>\{{ msg }}</h1>
     {{/if}}
     <h2>Essential Links</h2>
     <ul>
@@ -25,30 +26,16 @@
 </template>
 
 <script>
-  import {
-    showLoading,
-    hideLoading,
-    showToast,
-    showAlert,
-    showConfirm,
-    showPrompt,
-    showNotify,
-  } from '@/mixins';
-  // import {
-  //   Loading,
-  //   Toast,
-  // } from '@/components/commons';
   {{#if vuex}}
   import {
     mapGetters,
     mapMutations,
     // mapActions,
   } from 'vuex';
-  {{/if}}
 
+  {{/if}}
   export default {
     name: 'HelloWorld',
-    mixins: [showLoading, hideLoading, showToast, showAlert, showConfirm, showPrompt, showNotify],
     data() {
       return {
         show: false,
@@ -66,41 +53,13 @@
       // ...mapActions(['setIncrement']),
       {{/if}}
       click() {
-        // this.show = !this.show;
-        // setTimeout(() => {
-        //   this.show = true;
-        // }, 1500);
-        this.showPrompt('提示内容', '提示', res => {
-          console.log(res);
-        });
-        // this.showToast('提示内容', 'top', 'success');
-        // if (this.show) {
-        //   this.hideLoading();
-        // } else {
-        //   this.showLoading();
-        // }
-        // this.show = !this.show;
-        // this.showNotify('提示');
         {{#if vuex}}
-        // this.setIncrement(this.increment + 1);
+        this.setIncrement(this.increment + 1);
+        {{else}}
+        console.log('test');
         {{/if}}
       },
     },
-    // components: {
-    //   Loading,
-    //   Toast,
-    // },
-    // created() {
-    //   const url = `${$api.login}/123`;
-    //   $axios
-    //     .get(url)
-    //     .then(res => {
-    //       console.log(res);
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // },
   };
 </script>
 

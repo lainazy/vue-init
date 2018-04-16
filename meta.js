@@ -57,6 +57,7 @@ module.exports = {
     'config/test.env.js': 'test',
     'build/webpack.test.conf.js': 'test',
     'test/**/*': 'test',
+    'src/data/config/test.env.js': 'test',
     'src/store/**/*': 'vuex',
   },
   complete(data, { chalk }) {

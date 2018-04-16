@@ -22,11 +22,20 @@ module.exports = {
   },
   // add your custom rules here
   rules: {
+    // allow use ++ and -- operators <=> 允许使用++和--操作符
+    'no-plusplus': 'off',
+
     // allow use global variable without undefined <=> 允许使用未明确声明的全局变量
     'no-undef': 'off',
 
     // allow use the same name as a variable in its containing scope <=> 允许使用和父作用域同名的变量
     'no-shadow': 'off',
+
+    // allow use different operators in an expression without parentheses <=> 允许运算符混合使用
+    'no-mixed-operators': 'off',
+
+    // don't limit maximum line length <=> 不限制行最大字符数
+    'max-len': 'off',
 
     // allow omitting parens when there is only one argument <=> 当只有一个参数时允许省略圆括号
     'arrow-parens': ['error', 'as-needed'],
