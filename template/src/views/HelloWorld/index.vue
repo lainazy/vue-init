@@ -1,10 +1,6 @@
 <template>
   <div class="hello">
-    {{#if vuex}}
-    <h1>\{{ msg }} - \{{ increment }}</h1>
-    {{else}}
     <h1>\{{ msg }}</h1>
-    {{/if}}
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -21,6 +17,9 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    {{#if vuex}}
+    <div style="text-align: center">\{{ increment }}</div>
+    {{/if}}
     <div @click="click" style="position: relative;z-index:10000">测试</div>
   </div>
 </template>
@@ -38,7 +37,6 @@
     name: 'HelloWorld',
     data() {
       return {
-        show: false,
         msg: 'Welcome to Your Vue.js App',
       };
     },

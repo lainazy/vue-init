@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -8,6 +9,32 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const utils = require('./utils');
 const config = require('../config');
 const baseWebpackConfig = require('./webpack.base.conf');
+
+function getNeedCopyFiles() {
+  const filePath = path.resolve(__dirname, '../service-worker.js');
+  try {
+    fs.accessSync(filePath);
+    return [
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.build.assetsSubDirectory,
+        ignore: ['.*'],
+      },
+      {
+        from: path.resolve(__dirname, '../service-worker.js'),
+        to: config.build.assetsRoot,
+      },
+    ];
+  } catch (err) {
+    return [
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.build.assetsSubDirectory,
+        ignore: ['.*'],
+      },
+    ];
+  }
+}
 
 const webpackConfig = merge(baseWebpackConfig, {
   output: {
@@ -80,14 +107,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor'],
     }),
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
-        ignore: ['.*'],
-      },
-    ]),
+    // copy custom static assets and service worker
+    new CopyWebpackPlugin(getNeedCopyFiles()),
   ],
 });
 

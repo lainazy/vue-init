@@ -7,6 +7,7 @@ import router from './router';
 {{#if vuex}}
 import store from './store';
 {{/if}}
+import registerServiceWorker from './registerServiceWorker';
 
 import './utils/directives';
 import './utils/filters';
@@ -20,3 +21,4 @@ new Vue({
   {{/if}}
   render: h => h(App),
 });
+registerServiceWorker();
